@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Save the Stray Dog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+    <title>Location</title> 
+  <link rel="stylesheet" type="text/css" href="location.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta name="description" content="Web Development Tutorial enahce Google Map Interactivity with jQuery & Google Map API">
+<meta name="keywords" content="Google Map, Map, API, MAP API, jQuery Map, jQuery, Interactivity" />
+</head>
+<body onunload="GUnload()"> 
+	<div class="header">Save the Stray Dog</div>
+<div class="topnavi" id="mytopnavi">
+  <a href="javascript:void(0);" style="font-size: 15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	<a href="mine.html" class="fa fa-home"> Home</a>
+	<a href="about.html" class="fa fa-info"> About Us</a>
+	<a href="location.html" class="fa fa-map-marker"> Location</a>
+	<a href="donation.html" class="fa fa-money"> Donate</a>
+	<a href="species.html"><i class="material-icons" style="font-size: 18px;">pets</i> Species</a>
+	<a href="contact.html" class="fa fa-phone"> Contact Us</a>
+	<a href="sign.html" class="fa fa-user"> Sign in|Sign up</a>
+</div>
+<div id="html-text">
+<p><a class="mapwidth" href="http://www.onlywebpro.com/2014/09/01/enhancing-google-map-interactivity-with-jquery/"></a></p>
+</div>
+<div style="width: 100%;height: 560px;" id="map-canvas"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script class="map">
+var allMyMarkers = [];
+var map;
+ 
+function initialize() {
+        var locations = [
+                ['Johor Shelter','1.471676','103.954305'],
+                ['Kuala Lumpur Shelter','3.161383','101.703009'],
+                ['Melaka Shelter','2.373972','102.226602'],
+                ['Perak Shelter','4.638373','101.128821'],
+                ['Pulau Pinang Shelter','5.384092','100.277012']
+        ];
+         
+        var mapOptions = {
+          center: new google.maps.LatLng(3.1579, 101.7116),
+          zoom: 7
+        };
+         
+        map = new google.maps.Map(document.getElementById("map-canvas"),
+                mapOptions);
+         
+        // draw marker on map
+        for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        map: map,
+                        id: i
+                });
+                allMyMarkers.push(marker);
+        }
+}
+ 
+function toggleBounce(selectedID) {
+        var pinID = selectedID.split('_');
+        // loop through our array & check with marker has same ID with the text
+        for(var j=0;j<allMyMarkers.length;j++){
+                if(allMyMarkers[j].id == pinID[1]){
+                        if (allMyMarkers[j].getAnimation() != null) {
+                                allMyMarkers[j].setAnimation(null);
+                        } else {
+                                allMyMarkers[j].setAnimation(google.maps.Animation.BOUNCE);
+                                map.setCenter(allMyMarkers[j].getPosition());
+                        }
+                        break; // stop continue looping
+                }
+        }
+} // end toggleBounce
+</script>
+<script>
+$(document).ready(function() {
+        // init & construct the map
+        initialize();
+         
+        $('#html-text li a').hover(function(){
+                var selectedID = $(this).attr('id');
+                toggleBounce(selectedID);
+        });
+});
+</script>
+<script>
+  function myFunction(){
+  var x= document.getElementById("mytopnavi");
+    if (x.className === "topnavi") {
+      x.className += " responsive";
+    }
+    else{
+      x.className = "topnavi";
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Save the Stray Dog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="donation.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+	<div class="header"><h1>Save the Stray Dog</h1></div>
+<div class="topnavi" id="mytopnavi">
+	<a href="javascript:void(0);" style="font-size: 15px;" class="icon" onclick="myFunction()">&#9776;</a>
+	<a href="mine.html" class="fa fa-home"> Home</a>
+	<a href="about.html" class="fa fa-info"> About Us</a>
+	<a href="location.html" class="fa fa-map-marker"> Location</a>
+	<a href="donation.html" class="fa fa-money"> Donate</a>
+	<a href="species.html"><i class="material-icons" style="font-size: 18px;">pets</i> Species</a>
+	<a href="contact.html" class="fa fa-phone"> Contact Us</a>
+	<a href="sign.html" class="fa fa-user"> Sign in|Sign up</a>
+</div>
+<fieldset style="width: 100%;">
+	<legend class="donation"><h1>Donation Payment</h1></legend>
+	<table>
+		<tr class="payment">
+			<td>Payment Card:</td>
+			<td><input type="radio" name="credit">Credit Card</td>
+			<td><input type="radio" name="debit">Debit Card</td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td>Card:</td>
+			<td><input type="radio" name="visa"><img class="image" src="visa.png"></td>
+			<td><input type="radio" name="master"><img class="image" src="master.png"></td>
+			<td><input type="radio" name="paypal"><img class="image" src="paypal.png"></td>
+			<td><input type="radio" name="american"><img class="image" src="american.jpg"></td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td>First Name:</td>
+			<td><input type="text" name="name"></td>
+			<td>Last Name:</td>
+			<td><input type="text" name="name"></td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td>Card Number:</td>
+			<td><input type="number" name="cardnum"></td>
+			<td>CVV/CVC:</td>
+			<td><input type="number" name="cvv"></td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td>Month/Year Valid Thru:</td>
+			<td><select name="month">
+						<option value="Jan">January</option>
+						<option value="Feb">February</option>
+						<option value="Mar">March</option>
+						<option value="Apr">April</option>
+						<option value="May">May</option>
+						<option value="Jun">June</option>
+						<option value="Jul">July</option>
+						<option value="Aug">August</option>
+						<option value="Sep">September</option>
+						<option value="Oct">October</option>
+						<option value="Nov">November</option>
+						<option value="Dec">December</option>
+					</select> /
+					<select name="year">
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+						<option value="2021">2021</option>
+						<option value="2022">2022</option>
+						<option value="2023">2023</option>
+						<option value="2024">2024</option>
+						<option value="2025">2025</option>
+						<option value="2026">2026</option>
+						<option value="2027">2027</option>
+						<option value="2028">2028</option>
+						<option value="2029">2029</option>
+						<option value="2030">2030</option>
+						<option value="2031">2031</option>
+					</select>
+		</td>
+		</tr>
+	</table>
+</fieldset>
+<table>
+	<tr>
+		<td><button class="submit">Submit</button></td>
+		<td><button class="refresh">Refresh</button></td>
+	</tr>
+</table>
+<script>
+	function myFunction(){
+  var x= document.getElementById("mytopnavi");
+    if (x.className === "topnavi") {
+      x.className += " responsive";
+    }
+    else{
+      x.className = "topnavi";
+    }
+  }
+</script>
+</body>
+</html>
